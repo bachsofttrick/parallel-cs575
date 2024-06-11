@@ -1,0 +1,10 @@
+#!/bin/bash
+echo 'DATASIZE, LOCALSIZE, MegaTrialsPerSecond, m, b'
+for s in 4096 16384 65536 262144 1048576 4194304 8388608 16777216
+do
+    for b in 8 32 64 128 256
+    do
+        g++ -DDATASIZE=$s -DLOCALSIZE=$b -o src src.cpp /usr/lib/x86_64-linux-gnu/libOpenCL.so.1  -lm -fopenmp
+        ./src
+    done
+done

@@ -1,0 +1,9 @@
+#!/bin/bash
+# number of threads:
+for s in 1 2 4 6
+    do
+        echo NUMT = $s
+        rm -f src
+        g++ -DNUMT=$s src.cpp -o src -lm -fopenmp
+        ./src
+done
